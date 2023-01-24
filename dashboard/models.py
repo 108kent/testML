@@ -21,7 +21,8 @@ class Data(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
-        ml_model = pd.read_pickle('ml_model/model.pkl')
+        ml_model = pickle.load(open('ml_model/modelx.pkl', 'rb'))
+        #ml_model = joblib.load('ml_model/kento2.joblib')
         self.predictions = ml_model.predict(
             [[self.age, self.year_in_germany, self.sex]])
         return super().save(*args, *kwargs)
