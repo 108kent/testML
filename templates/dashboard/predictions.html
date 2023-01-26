@@ -5,11 +5,28 @@
 <div class="container">
     <div class="row mt-4">
         <div class="col-md-8 offset-md-2">
-            <div class="card shadow">
-                <div class="card-body">
-                    <h2>test</h2>
-                </div>
-            </div>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Sex</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Year in Germany</th>
+                    <th scope="col">Prediction</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for data in predicted_des %}
+                  <tr>
+                    <th scope="row">{{ data.name }}</th>
+                    <td>{{ data.sex }}</td>
+                    <td>{{ data.age }}</td>
+                    <td>{{ data.year_in_germany }}</td>
+                    <td>{{ data.predictions }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
         </div>
     </div>
 </div>

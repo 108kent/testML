@@ -1,13 +1,17 @@
 {% extends 'partials/base.html' %}
 {% block title %}Home{% endblock %}
-
+{% load crispy_forms_tags %}
 {% block content  %}
 <div class="container">
     <div class="row mt-4">
         <div class="col-md-8 offset-md-2">
             <div class="card shadow">
                 <div class="card-body">
-                    <h2>test</h2>
+                     <form method="POST">
+                         {% csrf_token %}
+                         {{ form|crispy }}
+                         <input class="btn btn-info" type="submit" value="Make Prediction">
+                     </form>
                 </div>
             </div>
         </div>
